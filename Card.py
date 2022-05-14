@@ -1,14 +1,22 @@
 class Card:
+    """ 扑克牌类 """
     back = "蓝色方格花纹"
     _suitDict = {'C':'梅花', 'D':'方块', 'H':'红桃', 'S':'黑桃'}
     _pointDict = {2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7',\
                  8:'8', 9:'9', 10:'10', 11:'J', 12:'Q', 13:'K', 14:'A'}
     
     def __init__(self, suit, point):
-        self.__suit = suit
-        self.__point = point
+        if suit not in Card._suitDict.keys():
+            raise ValueError('花色错误')
+        elif point not in Card._pointDict.keys():
+            raise ValueError('点数错误')
+        else:
+            self.__suit = suit
+            self.__point = point
+        
         
     def __repr__(self):
+        # 以"梅花2"的格式输出Card
         return Card._suitDict[self.__suit]+Card._pointDict[self.__point]
     
     def desc(self):
@@ -37,6 +45,7 @@ class Card:
         
     @property
     def suit(self):
+        # 一个字母代表的花色
         return self.__suit
     
     @property

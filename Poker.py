@@ -1,3 +1,4 @@
+""" Main 模块 """
 from Dealer import Dealer
 
 d = Dealer()
