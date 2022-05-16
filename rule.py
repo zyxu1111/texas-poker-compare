@@ -37,6 +37,14 @@ class Pattern:
     def is_shun(self):
         """ 判断5张牌属于顺 """
         cards = self.__cards
+        # 为 5 4 3 2 A的顺子
+        smallShun = {14, 5, 4, 3, 2}
+        if set([c.point for c in cards]) == smallShun:
+            if cards[0].point == 14:
+                cards.append(cards.pop(0)) # 将A移到最后
+            return cards[0].real_point
+        
+        # 为 其他顺子
         for index, c in enumerate(cards):
             if index != 0 and c.point != cards[index-1].point - 1:
                 return False
@@ -223,9 +231,9 @@ class Pattern:
 if __name__ == "__main__":
     # 用于调试模块
     patt = Pattern([Card('C',2),
-                   Card('H',12),
-                   Card('D',12),
-                   Card('S',10),
-                   Card('H',10)]) 
+                   Card('H',14),
+                   Card('D',3),
+                   Card('S',4),
+                   Card('H',5)]) 
     print(patt)
-    print(patt.is_two_pair())
+    print(patt.is_shun())

@@ -77,9 +77,9 @@ class Dealer(object):
 if __name__=="__main__":
     # 发确定的牌型用于调试
     d = Dealer()
-    hole1 = [Card('H', 14), Card('H',13)]
+    hole1 = [Card('H', 14), Card('H',2)]
     hole2 = [Card('H', 7), Card('H',6)]
-    river = [Card('H',12), Card('H',11), Card('H',10), Card('H',9), Card('H',8)]
+    river = [Card('H',4), Card('H',3), Card('H',5), Card('H',9), Card('H',8)]
     print('玩家{0}的手牌为[{1}]和[{2}]'.format(1, hole1[0], hole1[1]))
     print('玩家{0}的手牌为[{1}]和[{2}]'.format(2, hole2[0], hole2[1]))
     print('河牌为[{}]'.format(' '.join([str(c) for c in river])))
